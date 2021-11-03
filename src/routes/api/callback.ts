@@ -37,8 +37,8 @@ export async function get({query}:{query:URLSearchParams}) :Promise<{ headers: {
   return {
     headers: {
       'set-cookie': [
-        `trakt_access_token=${response.access_token}; Path=/; SameSite=Strict; Expires=${access_token_expires_in}`,
-        `trakt_refresh_token=${response.refresh_token}; Path=/; SameSite=Strict; Expires=${refresh_token_expires_in}`,
+        `trakt_access_token=${response.access_token}; Path=/; Expires=${access_token_expires_in}`,
+        `trakt_refresh_token=${response.refresh_token}; Path=/; Expires=${refresh_token_expires_in}`,
       ],
       Location: '/'
     },
