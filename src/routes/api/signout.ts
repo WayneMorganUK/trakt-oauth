@@ -7,7 +7,7 @@ import cookie from 'cookie';
  */
 export async function get(req:{ headers: { cookies: {name: string, val: string; }}; }): Promise<{ headers: { 'set-cookie'?: string[]; Location: string; }; status: number; }> {
     const cookies = cookie.parse(req.headers.cookies || '');
-    const request = await fetch('https://trakt.tv/oauth/revoke', {
+    const request = await fetch('https://api.trakt.tv/oauth/revoke', {
         method: 'POST',
         body: JSON.stringify({
             token: cookies.trakt_access_token,
